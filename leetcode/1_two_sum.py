@@ -19,33 +19,33 @@ Example:
 
 
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    def two_sum(self, nums: List[int], target: int) -> List[int]:
         candidate = {}
         for i, num in enumerate(nums):
             if (num in candidate):
                 return [candidate[num], i]
             candidate[target - num] = i
-        raise RuntimeError('No two sum solution')
+        raise RuntimeError('No solution')
 
 
 class TestSolution(unittest.TestCase):
     def test_different_value(self):
         s = Solution()
-        self.assertEqual(s.twoSum([3, 2, 4], 6), [1, 2])
+        self.assertEqual(s.two_sum([3, 2, 4], 6), [1, 2])
 
     def test_same_value(self):
         s = Solution()
-        self.assertEqual(s.twoSum([3, 3, 4], 6), [0, 1])
+        self.assertEqual(s.two_sum([3, 3, 4], 6), [0, 1])
 
     def test_no_solution(self):
         s = Solution()
         with self.assertRaises(RuntimeError):
-            s.twoSum([1, 2, 3], 6)
+            s.two_sum([1, 2, 3], 6)
 
     def test_one_element(self):
         s = Solution()
         with self.assertRaises(RuntimeError):
-            s.twoSum([1], 1)
+            s.two_sum([1], 1)
 
 
 if __name__ == '__main__':
