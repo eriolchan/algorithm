@@ -20,11 +20,12 @@ Example:
 
 class Solution:
     def two_sum(self, nums: List[int], target: int) -> List[int]:
-        candidate = {}
+        seen = {}
         for i, num in enumerate(nums):
-            if (num in candidate):
-                return [candidate[num], i]
-            candidate[target - num] = i
+            complement = target - num
+            if (complement in seen):
+                return [seen[complement], i]
+            seen[num] = i
         raise RuntimeError('No solution')
 
 
