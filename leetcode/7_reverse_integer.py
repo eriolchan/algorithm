@@ -36,7 +36,7 @@ class Solution:
         x *= sign
         reversed = 0
         while x:
-            if reversed == threshold and x > remainder or reversed > threshold:
+            if reversed > threshold or (reversed == threshold and x > remainder):
                 return 0
             reversed = reversed * 10 + x % 10
             x = x // 10
@@ -59,6 +59,14 @@ class TestSolution(unittest.TestCase):
     def test_zero(self):
         s = Solution()
         self.assertEqual(s.reverse(0), 0)
+
+    def test_even_digit(self):
+        s = Solution()
+        self.assertEqual(s.reverse(23), 32)
+
+    def test_one_digit(self):
+        s = Solution()
+        self.assertEqual(s.reverse(3), 3)
 
     def test_positive_overflow(self):
         s = Solution()
