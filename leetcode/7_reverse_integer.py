@@ -34,7 +34,7 @@ class Solution(object):
         threshold = MAX // 10
         remainder = MAX % 10 + 1 if x < 0 else MAX % 10
         sign = -1 if x < 0 else 1
-        x = x * sign
+        x *= sign
         reversed = 0
         while x:
             if reversed > threshold or (reversed == threshold and x > remainder):
