@@ -1,11 +1,8 @@
-import unittest
-
-
-"""
-Reverse Integer.
-https://leetcode.com/problems/reverse-integer/
+"""Reverse Integer.
 
 Given a 32-bit signed integer, reverse digits of an integer.
+
+https://leetcode.com/problems/reverse-integer/
 
 Example 1:
     Input: 123
@@ -27,23 +24,28 @@ overflows.
 """
 
 
-class Solution:
+import unittest
+
+
+class Solution(object):
+
     def reverse(self, x: int) -> int:
         MAX = 2 ** 31 - 1
         threshold = MAX // 10
         remainder = MAX % 10 + 1 if x < 0 else MAX % 10
         sign = -1 if x < 0 else 1
-        x *= sign
+        x = x * sign
         reversed = 0
         while x:
             if reversed > threshold or (reversed == threshold and x > remainder):
                 return 0
             reversed = reversed * 10 + x % 10
             x = x // 10
-        return sign * reversed
+        return reversed * sign
 
 
 class TestSolution(unittest.TestCase):
+
     def test_positive(self):
         s = Solution()
         self.assertEqual(s.reverse(123), 321)

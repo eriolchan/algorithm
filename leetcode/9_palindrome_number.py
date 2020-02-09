@@ -1,12 +1,9 @@
-import unittest
-
-
-"""
-Palindrome Number.
-https://leetcode.com/problems/palindrome-number/
+"""Palindrome Number.
 
 Determine whether an integer is a palindrome. An integer is a palindrome when
 it reads the same backward as forward.
+
+https://leetcode.com/problems/palindrome-number/
 
 Example 1:
     Input: 121
@@ -28,7 +25,11 @@ Coud you solve it without converting the integer to a string?
 """
 
 
-class Solution:
+import unittest
+
+
+class Solution(object):
+
     def is_palindrome(self, x: int) -> bool:
         if x < 0 or (x % 10 == 0 and x):
             return False
@@ -40,6 +41,7 @@ class Solution:
 
 
 class TestSolution(unittest.TestCase):
+
     def test_positive(self):
         s = Solution()
         self.assertEqual(s.is_palindrome(121), True)
