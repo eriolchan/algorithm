@@ -72,31 +72,28 @@ class Solution(object):
         return integer
 
 
-class TestSolution(unittest.TestCase):
+class SolutionTest(unittest.TestCase):
+
+    def setUp(self):
+        self.solution = Solution()
 
     def test_same(self):
-        s = Solution()
-        self.assertEqual(s.roman_to_int('III'), 3)
+        self.assertEqual(self.solution.roman_to_int('III'), 3)
 
     def test_small_then_large(self):
-        s = Solution()
-        self.assertEqual(s.roman_to_int('IV'), 4)
+        self.assertEqual(self.solution.roman_to_int('IV'), 4)
 
     def test_small_then_more_large(self):
-        s = Solution()
-        self.assertEqual(s.roman_to_int('IX'), 9)
+        self.assertEqual(self.solution.roman_to_int('IX'), 9)
 
     def test_large_to_small(self):
-        s = Solution()
-        self.assertEqual(s.roman_to_int('LVIII'), 58)
+        self.assertEqual(self.solution.roman_to_int('LVIII'), 58)
 
     def test_large_small_large(self):
-        s = Solution()
-        self.assertEqual(s.roman_to_int('MCMXCIV'), 1994)
+        self.assertEqual(self.solution.roman_to_int('MCMXCIV'), 1994)
 
     def test_one_char(self):
-        s = Solution()
-        self.assertEqual(s.roman_to_int('V'), 5)
+        self.assertEqual(self.solution.roman_to_int('V'), 5)
 
 
 if __name__ == '__main__':

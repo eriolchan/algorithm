@@ -30,29 +30,27 @@ class Solution(object):
         raise RuntimeError('No solution')
 
 
-class TestSolution(unittest.TestCase):
+class SolutionTest(unittest.TestCase):
+
+    def setUp(self):
+        self.solution = Solution()
 
     def test_different_value(self):
-        s = Solution()
-        self.assertEqual(s.two_sum([2, 7, 11, 15], 9), [0, 1])
+        self.assertEqual(self.solution.two_sum([2, 7, 11, 15], 9), [0, 1])
 
     def test_same_value(self):
-        s = Solution()
-        self.assertEqual(s.two_sum([3, 3, 4], 6), [0, 1])
+        self.assertEqual(self.solution.two_sum([3, 3, 4], 6), [0, 1])
 
     def test_not_use_twice(self):
-        s = Solution()
-        self.assertEqual(s.two_sum([3, 2, 4], 6), [1, 2])
+        self.assertEqual(self.solution.two_sum([3, 2, 4], 6), [1, 2])
 
     def test_no_solution(self):
-        s = Solution()
         with self.assertRaises(RuntimeError):
-            s.two_sum([1, 2, 3], 6)
+            self.solution.two_sum([1, 2, 3], 6)
 
     def test_one_element(self):
-        s = Solution()
         with self.assertRaises(RuntimeError):
-            s.two_sum([1], 1)
+            self.solution.two_sum([1], 1)
 
 
 if __name__ == '__main__':

@@ -40,43 +40,37 @@ class Solution(object):
         return x == reversed or x == reversed // 10
 
 
-class TestSolution(unittest.TestCase):
+class SolutionTest(unittest.TestCase):
+
+    def setUp(self):
+        self.solution = Solution()
 
     def test_positive(self):
-        s = Solution()
-        self.assertEqual(s.is_palindrome(121), True)
+        self.assertEqual(self.solution.is_palindrome(121), True)
 
     def test_negative(self):
-        s = Solution()
-        self.assertEqual(s.is_palindrome(-121), False)
+        self.assertEqual(self.solution.is_palindrome(-121), False)
 
     def test_end_with_zero(self):
-        s = Solution()
-        self.assertEqual(s.is_palindrome(10), False)
+        self.assertEqual(self.solution.is_palindrome(10), False)
 
     def test_palindrome_with_zero(self):
-        s = Solution()
-        self.assertEqual(s.is_palindrome(200200), False)
+        self.assertEqual(self.solution.is_palindrome(200200), False)
 
     def test_not_palindrome(self):
-        s = Solution()
-        self.assertEqual(s.is_palindrome(123), False)
+        self.assertEqual(self.solution.is_palindrome(123), False)
 
     def test_same(self):
-        s = Solution()
-        self.assertEqual(s.is_palindrome(111), True)
+        self.assertEqual(self.solution.is_palindrome(111), True)
 
     def test_even_digit(self):
-        s = Solution()
-        self.assertEqual(s.is_palindrome(2002), True)
+        self.assertEqual(self.solution.is_palindrome(2002), True)
 
     def test_one_digit(self):
-        s = Solution()
-        self.assertEqual(s.is_palindrome(3), True)
+        self.assertEqual(self.solution.is_palindrome(3), True)
 
     def test_zero(self):
-        s = Solution()
-        self.assertEqual(s.is_palindrome(0), True)
+        self.assertEqual(self.solution.is_palindrome(0), True)
 
 
 if __name__ == '__main__':

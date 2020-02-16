@@ -44,43 +44,37 @@ class Solution(object):
         return reversed * sign
 
 
-class TestSolution(unittest.TestCase):
+class SolutionTest(unittest.TestCase):
+
+    def setUp(self):
+        self.solution = Solution()
 
     def test_positive(self):
-        s = Solution()
-        self.assertEqual(s.reverse(123), 321)
+        self.assertEqual(self.solution.reverse(123), 321)
 
     def test_negative(self):
-        s = Solution()
-        self.assertEqual(s.reverse(-123), -321)
+        self.assertEqual(self.solution.reverse(-123), -321)
 
     def test_end_with_zero(self):
-        s = Solution()
-        self.assertEqual(s.reverse(120), 21)
+        self.assertEqual(self.solution.reverse(120), 21)
 
     def test_zero(self):
-        s = Solution()
-        self.assertEqual(s.reverse(0), 0)
+        self.assertEqual(self.solution.reverse(0), 0)
 
     def test_even_digit(self):
-        s = Solution()
-        self.assertEqual(s.reverse(23), 32)
+        self.assertEqual(self.solution.reverse(23), 32)
 
     def test_one_digit(self):
-        s = Solution()
-        self.assertEqual(s.reverse(3), 3)
+        self.assertEqual(self.solution.reverse(3), 3)
 
     def test_positive_overflow(self):
-        s = Solution()
-        self.assertEqual(s.reverse(2147483647), 0)
+        self.assertEqual(self.solution.reverse(2147483647), 0)
 
     def test_negative_overflow(self):
-        s = Solution()
-        self.assertEqual(s.reverse(-2147483647), 0)
+        self.assertEqual(self.solution.reverse(-2147483647), 0)
 
     def test_invalid_input(self):
-        s = Solution()
-        self.assertEqual(s.reverse(2 ** 31), 0)
+        self.assertEqual(self.solution.reverse(2 ** 31), 0)
 
 
 if __name__ == '__main__':
