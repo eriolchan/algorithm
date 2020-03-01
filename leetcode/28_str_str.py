@@ -32,6 +32,7 @@ class Solution(object):
         needle_len = len(needle)
         if not needle_len:
             return 0
+        # Boyer-Moore algorithm
         bad_character = self.get_bad_character(needle)
         good_suffix = self.get_good_suffix(needle)
         start = 0
